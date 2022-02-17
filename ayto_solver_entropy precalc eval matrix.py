@@ -2,12 +2,16 @@ from itertools import permutations, product
 import random, sys
 import time
 import math
+import numpy as np
+from collections import Counter
 
 def init(size):
     global all_permutations
     global all_pairs
+    global eval_matrix
     all_permutations = list(permutations(range(size)))
     all_pairs = list(product(range(size),repeat=2))
+    eval_matrix = np.load(f'EvaluationMatrices/eval_matrix_%d.npy' % size)
 
 def evaluate(solution,guess):
     if len(guess) == len(solution):
@@ -19,15 +23,52 @@ def evaluate(solution,guess):
     else: #Abfrage benötigt wenn wir nur das Ergebnis der truth booth haben und alle perms finden wollen, in denen dieses tupel (nicht) drin ist
          return 1 if solution[guess[0]] == guess[1] else 0
 
-def remove_permutations(permutations, guess, number_matches):
-    return [perm for perm in permutations if evaluate(perm, guess) == number_matches]
+def perm_to_int_dict_fct(permutations):
+    dict_perm_to_int = {}
+    k = 0
+    for perm in permutations:
+        dict_perm_to_int[perm]=k
+        k += 1
+    return dict_perm_to_int
+
+
+def remove_permutations(permutations, guess, eval_matrix, dict_perm_to_int, number_matches): #also delete rows and columns of eval matrix
+    if len(guess) == len(permutations[0]):
+        for perm in permutations:
+            if eval_matrix[dict_perm_to_int[perm]][dict_perm_to_int[guess]] != number_matches:
+                permutations.remove(perm)
+                np.delete(eval_matrix, dict_perm_to_int[perm], 0) #row
+                np.delete(eval_matrix, dict_perm_to_int[perm], 1) #column
+        return permutations, eval_matrix
+    else:
+        for perm in permutations:
+            if evaluate(perm, guess) != number_matches:
+                permutations.remove(perm)
+                np.delete(eval_matrix, dict_perm_to_int[perm], 0) #row
+                np.delete(eval_matrix, dict_perm_to_int[perm], 1) #column
+        return permutations, eval_matrix
+
+
+    #TODO: remove_permutations() wird auch bei truth booth aufgerufen. Vorher war in remove_permutations dann die evaluate Abfrage in Z37: "if evaluate(perm, guess) == number_matches"
+    #was funktioniert hat weil wir in evaluate() die Fallunterscheidung haben
+    #Problem:  mit der eval_matrix können wir nicht mehr so leicht überprüfen, ob eine permutation ein explizites couple enthält oder nicht.
+    #quickfix: neue funktion remove_permutations_truthbooth() welche die alte remove_permutations() ist und mit evaluate() arbeitet
+    #quickfix funktioniert nicht: wenn bei truthbooth die zeilen & spalten in eval_matrix nicht korrekt gelöscht werden, wird in der nöchsten runde die p_k falsch ausgerechnet
+    #weil len(possible_perms) angepasst ist, die Summen in der Zeile vom guess in eval_matrix aber nicht
+# def remove_permutations_truthbooth(permutations, guess, number_matches):
+#     permutations = [perm for perm in permutations if evaluate(perm, guess) == number_matches]
+#     for perm in permutations:
+#         if eval_matrix[dict_perm_to_int[perm]][dict_perm_to_int[guess]] != number_matches:
+#             np.delete(eval_matrix, dict_perm_to_int[perm], 0) #row
+#             np.delete(eval_matrix, dict_perm_to_int[perm], 1)
+#     return permutations
 
 def remove_pair(possible_pairs, pair):
     poss_pairs = possible_pairs
     poss_pairs.remove(pair)
     return poss_pairs
 
-def entropy_for_guess(guess, possible_permutations): #dauert viel zu lang.. für #poss_perms = 12800 dauerts ca 20 Minuten
+def entropy_for_guess(guess, possible_permutations, eval_matrix, dict_perm_to_int): #dauert viel zu lang.. für #poss_perms = 12800 dauerts ca 20 Minuten
     """
     calculates Shannon Entropy H for a specific guess as H = = -sum(p_k * log(p_k)
     where p_k is the probability that the guess has exactly k matches right:
@@ -36,10 +77,11 @@ def entropy_for_guess(guess, possible_permutations): #dauert viel zu lang.. für
     """
     size = len(guess)
     H = 0 
+    dict_of_match_appearances = Counter(eval_matrix[dict_perm_to_int[guess]])
     for k in range(size+1): #zero matches to 10 matches
-        p_k = len([perm for perm in possible_permutations if evaluate(guess, perm) == k]) / len(possible_permutations)
+        p_k = dict_of_match_appearances[k] / len(possible_permutations)
         if p_k > 0: #TODO ist p_k = 0 möglich oder error?
-            H += p_k * math.log((1 / p_k), 2)
+            H -= p_k * math.log((p_k), 2)
     return H 
 
 def entropy_for_truth_booth(possible_permutations, pair):
@@ -69,7 +111,7 @@ def get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber
                 best_entropy = entropy_for_truth_booth(possible_permutations, pair)
         return next_pair
 
-def get_guess_candidate(possible_permutations, roundnumber): #returns next guess
+def get_guess_candidate(possible_permutations, roundnumber, eval_matrix, dict_perm_to_int): #returns next guess
     size = len(possible_permutations[0])
     if roundnumber == 1:
         return possible_permutations[random.randint(0, len(possible_permutations)-1)]
@@ -81,9 +123,9 @@ def get_guess_candidate(possible_permutations, roundnumber): #returns next guess
         next_guess = ()
         best_entropy = 0
         for guess_candidate in possible_permutations:
-            if entropy_for_guess(guess_candidate, possible_permutations) > best_entropy:
+            if entropy_for_guess(guess_candidate, possible_permutations, eval_matrix, dict_perm_to_int) > best_entropy:
                 next_guess = guess_candidate
-                best_entropy = entropy_for_guess(guess_candidate, possible_permutations)
+                best_entropy = entropy_for_guess(guess_candidate, possible_permutations, eval_matrix, dict_perm_to_int)
         return next_guess
     #TODO: unterschiedliche returns bei if Abfrage ein Problem?
 
@@ -95,11 +137,13 @@ def one_season(solution, should_print):
     cur_truth_booth_guess = None
     possible_permutations = all_permutations
     possible_pairs = all_pairs
+    eval_matrix_poss_perms = eval_matrix
     roundnumber = 0
     prev_guesses = []
     prev_truth_booth_guesses = []
     while True:
         roundnumber += 1
+        dict_perm_to_int = perm_to_int_dict_fct(possible_permutations)
         if should_print:
             print('\n Round %d' % roundnumber)
             print('Num of possibilities: %d' % len(possible_permutations))
@@ -119,7 +163,7 @@ def one_season(solution, should_print):
                 print("Truth Booth did not find a match")
         if evaluation == 1:
             perm_before = len(possible_permutations)
-            possible_permutations = remove_permutations(possible_permutations, cur_truth_booth_guess, 1)
+            possible_permutations, eval_matrix_poss_perms = remove_permutations(possible_permutations, cur_truth_booth_guess, eval_matrix_poss_perms, dict_perm_to_int, 1)
             print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations))) # TODO: wenn match in truthbooth gefunden wird braucht das programm hier ewig, im anderen fall auch manchmal. Wieso? #wir behalten nur die permutationen bei denen perm(pairtuple[0])= pairtuple[1]
             for k in range(size):
                 if k != cur_truth_booth_guess[1] and (cur_truth_booth_guess[0], k) in possible_pairs:
@@ -129,11 +173,11 @@ def one_season(solution, should_print):
         else: 
             possible_pairs = remove_pair(possible_pairs, cur_truth_booth_guess)
             perm_before = len(possible_permutations)
-            possible_permutations = remove_permutations(possible_permutations, cur_truth_booth_guess, 0)
+            possible_permutations, eval_matrix_poss_perms = remove_permutations(possible_permutations, cur_truth_booth_guess, eval_matrix_poss_perms, dict_perm_to_int, 0)
             print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations)))
         #Matching Night
         start = time.time()
-        cur_guess = get_guess_candidate(possible_permutations, roundnumber)
+        cur_guess = get_guess_candidate(possible_permutations, roundnumber, eval_matrix_poss_perms, dict_perm_to_int)
         if should_print:
             print('Guess: %s' % str(cur_guess))
             end = time.time()
@@ -152,7 +196,7 @@ def one_season(solution, should_print):
                 return roundnumber
             break #einziges Abbruchkriterium wenn Lösung gefunden wurde
         perm_before = len(possible_permutations)
-        possible_permutations = remove_permutations(possible_permutations, cur_guess, number_of_matches)
+        possible_permutations, eval_matrix_poss_perms = remove_permutations(possible_permutations, cur_guess, eval_matrix_poss_perms, dict_perm_to_int, number_of_matches)
         print("Number of permutations removed by Matching Night: %s" % str(perm_before-len(possible_permutations)))
 
 def main(size):
@@ -161,7 +205,7 @@ def main(size):
     one_season(solution, True)
 
 if __name__=='__main__':
-    size = 10
+    size = 6
     RANDOM_THRESHOLD = 150000
     main(size)
 
