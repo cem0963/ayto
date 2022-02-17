@@ -1,0 +1,891 @@
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 14:43:24
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.11 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 14:46:55
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.14 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 14:53:51
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.13 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:31:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:34:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:34:31
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:34:53
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.13 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:48:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:52:05
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.10 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/04/21 15:52:35
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.11 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 11:42:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 11:42:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:06:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:08:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:08:39
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 120 columns and 302 nonzeros
+Variable types: 0 continuous, 120 integer (120 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 6 rows and 18 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 102 columns, 243 nonzeros
+Variable types: 0 continuous, 102 integer (102 binary)
+
+Root relaxation: objective 0.000000e+00, 34 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3397 nodes (1773 simplex iterations) in 0.23 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1597: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:10:22
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.13 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:10:29
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 120 columns and 302 nonzeros
+Variable types: 0 continuous, 120 integer (120 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 6 rows and 18 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 102 columns, 243 nonzeros
+Variable types: 0 continuous, 102 integer (102 binary)
+
+Root relaxation: objective 0.000000e+00, 34 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3397 nodes (1773 simplex iterations) in 0.14 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1597: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:17:20
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:18:28
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.22 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:21:32
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.14 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:23:06
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.14 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:38:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:43:20
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.17 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 13:56:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:00:10
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.11 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:02:38
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.09 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:03:58
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 298 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 218 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 41 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 2675 nodes (1578 simplex iterations) in 0.10 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1125: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:04:11
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.16 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:08:13
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.28 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:17:35
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 299 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 25 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 94 columns, 226 nonzeros
+Variable types: 0 continuous, 94 integer (94 binary)
+
+Root relaxation: objective 0.000000e+00, 34 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3206 nodes (1747 simplex iterations) in 0.11 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:22:35
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 33 rows, 119 columns and 300 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 7 rows and 26 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 93 columns, 225 nonzeros
+Variable types: 0 continuous, 93 integer (93 binary)
+
+Root relaxation: objective 0.000000e+00, 36 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   20          -    0.00000      -     -    0s
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+     0     0    0.00000    0   23    0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3244 nodes (1579 simplex iterations) in 0.11 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+Gurobi 8.1.1 (win64, Python) logging started 03/05/21 14:22:47
+
+Academic license - for non-commercial use only
+Changed value of parameter PoolSolutions to 2000000000
+   Prev: 10  Min: 1  Max: 2000000000  Default: 10
+Changed value of parameter PoolSearchMode to 2
+   Prev: 0  Min: 0  Max: 2  Default: 0
+Optimize a model with 32 rows, 119 columns and 299 nonzeros
+Variable types: 0 continuous, 119 integer (119 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+00]
+Found heuristic solution: objective 0.0000000
+Presolve removed 6 rows and 25 columns
+Presolve time: 0.00s
+Presolved: 26 rows, 94 columns, 226 nonzeros
+Variable types: 0 continuous, 94 integer (94 binary)
+
+Root relaxation: objective 0.000000e+00, 34 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+Optimal solution found at node 0 - now completing solution pool...
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     0          -    0         0.00000    0.00000  0.00%     -    0s
+     0     2          -    0         0.00000    0.00000  0.00%     -    0s
+
+Explored 3206 nodes (1747 simplex iterations) in 0.12 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1387: 0 0 0 ... 0
+No other solutions better than 1e+100
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
