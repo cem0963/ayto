@@ -123,20 +123,20 @@ def interactive_truthbooth():
 def interactive_evaluate_truthbooth(cur_truth_booth_guess):
     woman_number = cur_truth_booth_guess[0]
     man_number = cur_truth_booth_guess[1]
-    woman = candidates_data['women'][str(woman_number)]
-    man = candidates_data['men'][man_number]
-    print("Are %s a match?" %str(woman, man), "(1/0)")
+    woman = candidates_data['women'][woman_number][str(woman_number)]
+    man = candidates_data['men'][man_number][str(man_number)]
+    print("Are", woman, ", and ", man, "  a match?", "(1/0)")
     evaluation = int(input())
     return evaluation
 
 def interactive_guess():
     cur_guess = ()
-    for i in candidates_data['women']:
-        cur_woman = candidates_data['women'][i]
+    for i in range(size):
+        cur_woman = candidates_data['women'][i][str(i)]
         print("who is %s match in matching night?" %str(cur_woman))
         cur_man = str(input())
         for j in candidates_data['men']:
-            if candidates_data['men'][j] == cur_man:
+            if candidates_data['men'][j][str(j)] == cur_man:
                 man_number = int(j)
                 cur_guess_list = list(cur_guess)
                 cur_guess_list.append(man_number)
