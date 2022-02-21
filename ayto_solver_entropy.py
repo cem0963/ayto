@@ -2,12 +2,21 @@ from itertools import permutations, product
 import random, sys
 import time
 import math
+import json 
 
-def init(size):
+def init(size, interactive):
     global all_permutations
     global all_pairs
     all_permutations = list(permutations(range(size)))
     all_pairs = list(product(range(size),repeat=2))
+    if interactive:
+        f = open('seasons/AYTO_DE_2021/candidates.json')
+        global candidates_data
+        candidates_data = json.load(f)
+        print(candidates_data)
+        for gender in candidates_data:
+            for i in range(size):
+                print("%s: " %str(i), candidates_data[gender][i][str(i)])
 
 def evaluate(solution,guess):
     if len(guess) == len(solution):
@@ -85,10 +94,65 @@ def get_guess_candidate(possible_permutations, roundnumber): #returns next guess
                 next_guess = guess_candidate
                 best_entropy = entropy_for_guess(guess_candidate, possible_permutations)
         return next_guess
-    #TODO: unterschiedliche returns bei if Abfrage ein Problem?
 
-def one_season(solution, should_print):
-    if should_print:
+## Funktionen für interaktiven Modus
+
+def GetKey(val): #TODO
+   for key, value in candidates_data.items():
+      if val == value:
+         return key
+      return "key doesn't exist"
+
+def interactive_truthbooth():
+    #input of truth booth pair
+    print("Name of woman in truth booth:")
+    woman_tb = str(input())
+    for w in range(size):
+        if candidates_data['women'][w][str(w)] == woman_tb:
+            woman_tb_number = int(w)
+            break
+    print("Name of man in truth booth:")
+    man_tb = str(input())
+    for i in range(size):
+        if candidates_data['men'][i][str(i)] == man_tb:
+            man_tb_number = int(i)
+            break
+    cur_truth_booth_guess = (woman_tb_number, man_tb_number)
+    return cur_truth_booth_guess
+
+def interactive_evaluate_truthbooth(cur_truth_booth_guess):
+    woman_number = cur_truth_booth_guess[0]
+    man_number = cur_truth_booth_guess[1]
+    woman = candidates_data['women'][str(woman_number)]
+    man = candidates_data['men'][man_number]
+    print("Are %s a match?" %str(woman, man), "(1/0)")
+    evaluation = int(input())
+    return evaluation
+
+def interactive_guess():
+    cur_guess = ()
+    for i in candidates_data['women']:
+        cur_woman = candidates_data['women'][i]
+        print("who is %s match in matching night?" %str(cur_woman))
+        cur_man = str(input())
+        for j in candidates_data['men']:
+            if candidates_data['men'][j] == cur_man:
+                man_number = int(j)
+                cur_guess_list = list(cur_guess)
+                cur_guess_list.append(man_number)
+                cur_guess = tuple(cur_guess_list)
+                break
+    return cur_guess
+
+
+def interactive_evaluate_matchingnight(cur_guess):
+    print("How many matches in matching night?")
+    evaluation = int(input())
+    return evaluation
+
+
+def one_season(solution, should_print, interactive):
+    if should_print and not interactive:
         print("solution: ", solution)
     size = len(solution)
     cur_guess = None
@@ -104,13 +168,18 @@ def one_season(solution, should_print):
             print('\n Round %d' % roundnumber)
             print('Num of possibilities: %d' % len(possible_permutations))
             print('Num of possible pairs: %d' % len(possible_pairs))
-
-        # Truth booth
-        cur_truth_booth_guess = get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber) #TODO
-        prev_truth_booth_guesses.append(cur_truth_booth_guess)
-        if should_print:
-            print('Guess for truth booth: %s' % str(cur_truth_booth_guess))
-        evaluation = evaluate(solution, cur_truth_booth_guess)
+        if interactive:
+            # Truth booth
+            cur_truth_booth_guess = interactive_truthbooth() #TODO: Eingabe Truth Booth Pärchen
+            prev_truth_booth_guesses.append(cur_truth_booth_guess)
+            evaluation = interactive_evaluate_truthbooth(cur_truth_booth_guess) #TODO: sagen ob wahr oder falsch
+        else:
+            # Truth booth
+            cur_truth_booth_guess = get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber) 
+            prev_truth_booth_guesses.append(cur_truth_booth_guess)
+            if should_print:
+                print('Guess for truth booth: %s' % str(cur_truth_booth_guess))
+            evaluation = evaluate(solution, cur_truth_booth_guess)
         if should_print:
             print('Evaluation of Truth Booth:')
             if evaluation == 1: 
@@ -120,7 +189,7 @@ def one_season(solution, should_print):
         if evaluation == 1:
             perm_before = len(possible_permutations)
             possible_permutations = remove_permutations(possible_permutations, cur_truth_booth_guess, 1)
-            print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations))) # TODO: wenn match in truthbooth gefunden wird braucht das programm hier ewig, im anderen fall auch manchmal. Wieso? #wir behalten nur die permutationen bei denen perm(pairtuple[0])= pairtuple[1]
+            print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations))) 
             for k in range(size):
                 if k != cur_truth_booth_guess[1] and (cur_truth_booth_guess[0], k) in possible_pairs:
                     possible_pairs = remove_pair(possible_pairs, (cur_truth_booth_guess[0], k))
@@ -133,13 +202,20 @@ def one_season(solution, should_print):
             print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations)))
         #Matching Night
         start = time.time()
-        cur_guess = get_guess_candidate(possible_permutations, roundnumber)
+        if interactive:
+            cur_guess = interactive_guess() #TODO: Matching night Eingabe guess
+        else:
+            cur_guess = get_guess_candidate(possible_permutations, roundnumber)
         if should_print:
             print('Guess: %s' % str(cur_guess))
             end = time.time()
-            print("time needed to find guess (in seconds): %s" % str(end-start))
+            if not interactive:
+                print("time needed to find guess (in seconds): %s" % str(end-start))
         prev_guesses.append(cur_guess)
-        number_of_matches = evaluate(solution, cur_guess)
+        if interactive:
+            number_of_matches = interactive_evaluate_matchingnight() #TODO Matching night Eingabe #matchings
+        else:
+            number_of_matches = evaluate(solution, cur_guess)
         if should_print:
             print('Guess had %s matches' % str(number_of_matches))
         if number_of_matches == 0: #Blackout Sonderfall
@@ -155,15 +231,18 @@ def one_season(solution, should_print):
         possible_permutations = remove_permutations(possible_permutations, cur_guess, number_of_matches)
         print("Number of permutations removed by Matching Night: %s" % str(perm_before-len(possible_permutations)))
 
-def main(size):
-    init(size)
+def main(size, interactive):
+    init(size, interactive)
     solution = all_permutations[random.randint(0,len(all_permutations)-1)]
-    one_season(solution, True)
+    one_season(solution, output, interactive)
 
 if __name__=='__main__':
     size = 10
     RANDOM_THRESHOLD = 150000
-    main(size)
+    output = True
+    interactive = True
+    main(size, interactive)
+
 
 
 
