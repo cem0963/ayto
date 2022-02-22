@@ -27,6 +27,7 @@ if __name__=='__main__':
 - *interactive mode* offers the possibility to type in the guesses for each round yourself so that you can keep track while watching a season of AYTO
     - for that you need a file *candidates.json* (and of course the correct file path)
     - make sure you type in the names correct, otherwise you get an error
+    - the deposited solution is irrelevant in the interactive mode because no query with the solution is happening
 
 
 ## some explanations  for *ayto_solver_entropy precalc eval matrix.py*
@@ -60,5 +61,9 @@ Nur Hälfte der Eintrage berechnen weil symmetrisch.
     (ii) x Läufe gleichzeitig starten können
 
 3. Monte-Carlo-Simulation mit und ohne entropy um vergleichen zu können
+
+4. Im interactive mode die Möglichkeit geben bisherige Runden zu speichern, damit man nicht immer alles von der ersten Runde eingeben muss
+
+5. Möglichkeit die solution selbst einzugeben
 
 *To switch between views, press Ctrl+Shift+V in the editor.*

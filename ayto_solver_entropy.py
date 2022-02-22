@@ -3,6 +3,7 @@ import random, sys
 import time
 import math
 import json 
+from pathlib import Path
 
 def init(size, interactive):
     global all_permutations
@@ -10,7 +11,7 @@ def init(size, interactive):
     all_permutations = list(permutations(range(size)))
     all_pairs = list(product(range(size),repeat=2))
     if interactive:
-        f = open('seasons/AYTO_DE_2021/candidates.json') #TODO: praktischer machen
+        f = open(candidates_file) #TODO: praktischer machen
         global candidates_data
         candidates_data = json.load(f)
         print(candidates_data)
@@ -105,18 +106,26 @@ def GetKey(val): #TODO
 
 def interactive_truthbooth():
     #input of truth booth pair
-    print("Name of woman in truth booth:")
-    woman_tb = str(input())
-    for w in range(size):
-        if candidates_data['women'][w][str(w)] == woman_tb:
-            woman_tb_number = int(w)
-            break
-    print("Name of man in truth booth:")
-    man_tb = str(input())
-    for i in range(size):
-        if candidates_data['men'][i][str(i)] == man_tb:
-            man_tb_number = int(i)
-            break
+    woman_tb_number = -1
+    while woman_tb_number == -1:
+        print("Name of woman in truth booth:")
+        woman_tb = str(input())
+        for w in range(size):
+            if candidates_data['women'][w][str(w)] == woman_tb:
+                woman_tb_number = int(w)
+                break
+        if woman_tb_number == -1:
+            print("%s is not a candidate." %woman_tb, "Try again.")
+    man_tb_number = -1
+    while man_tb_number == -1:
+        print("Name of man in truth booth:")
+        man_tb = str(input())
+        for m in range(size):
+            if candidates_data['men'][m][str(m)] == man_tb:
+                man_tb_number = int(m)
+                break
+        if man_tb_number == -1:
+            print("%s is not a candidate." %man_tb, "Try again.")
     cur_truth_booth_guess = (woman_tb_number, man_tb_number)
     return cur_truth_booth_guess
 
@@ -131,17 +140,29 @@ def interactive_evaluate_truthbooth(cur_truth_booth_guess):
 
 def interactive_guess():
     cur_guess = ()
+    already_paired_men = []
     for i in range(size):
         cur_woman = candidates_data['women'][i][str(i)]
-        print("who is %s's match in matching night?" %str(cur_woman))
-        cur_man = str(input())
-        for j in range(size):
-            if candidates_data['men'][j][str(j)] == cur_man:
-                man_number = int(j)
-                cur_guess_list = list(cur_guess)
-                cur_guess_list.append(man_number)
-                cur_guess = tuple(cur_guess_list)
-                break
+        man_number = -1
+        while man_number == -1:
+            h = 0
+            print("who is %s's match in matching night?" %str(cur_woman))
+            cur_man = str(input())
+            for j in range(size):
+                if candidates_data['men'][j][str(j)] == cur_man:
+                    if int(j) in already_paired_men:
+                        print("%s is already paired." %cur_man, "Try again.")
+                        h -= 1
+                        break
+                    else:
+                        man_number = int(j)
+                        cur_guess_list = list(cur_guess)
+                        cur_guess_list.append(man_number)
+                        already_paired_men.append(man_number)
+                        cur_guess = tuple(cur_guess_list)
+                        break
+            if man_number == -1 and h == 0:
+                print("%s is not a candidate." %cur_man, "Try again.")
     return cur_guess
 
 
@@ -239,8 +260,10 @@ def main(size, interactive):
     one_season(solution, output, interactive)
 
 if __name__=='__main__':
-    size = 6
+    size = 10
     RANDOM_THRESHOLD = 150000
     output = True
-    interactive = False
+    interactive = True
+    data_folder = Path("data/seasons/AYTO_DE_2021/")
+    candidates_file = data_folder / "candidates.json"
     main(size, interactive)
