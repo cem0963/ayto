@@ -125,7 +125,7 @@ def interactive_evaluate_truthbooth(cur_truth_booth_guess):
     man_number = cur_truth_booth_guess[1]
     woman = candidates_data['women'][woman_number][str(woman_number)]
     man = candidates_data['men'][man_number][str(man_number)]
-    print("Are", woman, ", and ", man, "  a match?", "(1/0)")
+    print("Are", woman, "and", man, "a match?", "(1/0)")
     evaluation = int(input())
     return evaluation
 
@@ -133,9 +133,9 @@ def interactive_guess():
     cur_guess = ()
     for i in range(size):
         cur_woman = candidates_data['women'][i][str(i)]
-        print("who is %s match in matching night?" %str(cur_woman))
+        print("who is %s's match in matching night?" %str(cur_woman))
         cur_man = str(input())
-        for j in candidates_data['men']:
+        for j in range(size):
             if candidates_data['men'][j][str(j)] == cur_man:
                 man_number = int(j)
                 cur_guess_list = list(cur_guess)
@@ -145,7 +145,9 @@ def interactive_guess():
     return cur_guess
 
 
-def interactive_evaluate_matchingnight(cur_guess):
+def interactive_evaluate_matchingnight(cur_guess, possible_permutations):
+    if cur_guess not in possible_permutations:
+        print("%s is not a possible solution." %str(cur_guess))
     print("How many matches in matching night?")
     evaluation = int(input())
     return evaluation
@@ -201,10 +203,10 @@ def one_season(solution, should_print, interactive):
             possible_permutations = remove_permutations(possible_permutations, cur_truth_booth_guess, 0)
             print("Number of permutations removed by Truth Booth: %s" % str(perm_before-len(possible_permutations)))
         #Matching Night
-        start = time.time()
         if interactive:
-            cur_guess = interactive_guess() #TODO: Matching night Eingabe guess
+            cur_guess = interactive_guess() 
         else:
+            start = time.time()
             cur_guess = get_guess_candidate(possible_permutations, roundnumber)
         if should_print:
             print('Guess: %s' % str(cur_guess))
@@ -213,7 +215,7 @@ def one_season(solution, should_print, interactive):
                 print("time needed to find guess (in seconds): %s" % str(end-start))
         prev_guesses.append(cur_guess)
         if interactive:
-            number_of_matches = interactive_evaluate_matchingnight() #TODO Matching night Eingabe #matchings
+            number_of_matches = interactive_evaluate_matchingnight(cur_guess, possible_permutations)
         else:
             number_of_matches = evaluate(solution, cur_guess)
         if should_print:
@@ -237,10 +239,10 @@ def main(size, interactive):
     one_season(solution, output, interactive)
 
 if __name__=='__main__':
-    size = 10
+    size = 6
     RANDOM_THRESHOLD = 150000
     output = True
-    interactive = True
+    interactive = False
     main(size, interactive)
 
 
