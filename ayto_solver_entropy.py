@@ -65,7 +65,7 @@ def entropy_for_truth_booth(possible_permutations, pair):
     return H
 
 def get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber):
-    if len(possible_permutations) == 1: #if only one option left id doesnt matter which pair we send to truth booth. but if len(possible_permutations) == 1, we get in entropy_for_truth_booth fct p = 1 and then a division by zero
+    if len(possible_permutations) == 1: #if only one option left it doesnt matter which pair we send to truth booth. but if len(possible_permutations) == 1, we get in entropy_for_truth_booth fct p = 1 and then a division by zero
         next_pair = possible_pairs[random.randint(0, len(possible_pairs)-1)]
         return next_pair
     if roundnumber == 1:
@@ -166,11 +166,18 @@ def interactive_guess():
     return cur_guess
 
 
-def interactive_evaluate_matchingnight(cur_guess, possible_permutations):
+def interactive_evaluate_matchingnight(cur_guess, possible_permutations, roundnumber):
     if cur_guess not in possible_permutations:
         print("%s is not a possible solution." %str(cur_guess))
     print("How many matches in matching night?")
     evaluation = int(input())
+    # print("Save Matching night week %d" %roundnumber, "in %s ? (1/0)" %str(save_file) ) #TODO
+    # save = int(input())
+    # if save == 1:
+    #     g = open(save_file, "w")
+    #     weekly_data = json.load(g)
+    #     weekly_data['matchingnight'][roundnumber][str(roundnumber)] = cur_guess
+    #     json.dump(weekly_data, save_file)
     return evaluation
 
 
@@ -184,6 +191,7 @@ def one_season(solution, should_print, interactive):
     possible_pairs = all_pairs
     roundnumber = 0
     prev_guesses = []
+    #weekly_data = {} #TODO
     prev_truth_booth_guesses = []
     while True:
         roundnumber += 1
@@ -193,9 +201,9 @@ def one_season(solution, should_print, interactive):
             print('Num of possible pairs: %d' % len(possible_pairs))
         if interactive:
             # Truth booth
-            cur_truth_booth_guess = interactive_truthbooth() #TODO: Eingabe Truth Booth Pärchen
+            cur_truth_booth_guess = interactive_truthbooth() 
             prev_truth_booth_guesses.append(cur_truth_booth_guess)
-            evaluation = interactive_evaluate_truthbooth(cur_truth_booth_guess) #TODO: sagen ob wahr oder falsch
+            evaluation = interactive_evaluate_truthbooth(cur_truth_booth_guess)
         else:
             # Truth booth
             cur_truth_booth_guess = get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber) 
@@ -236,7 +244,7 @@ def one_season(solution, should_print, interactive):
                 print("time needed to find guess (in seconds): %s" % str(end-start))
         prev_guesses.append(cur_guess)
         if interactive:
-            number_of_matches = interactive_evaluate_matchingnight(cur_guess, possible_permutations)
+            number_of_matches = interactive_evaluate_matchingnight(cur_guess, possible_permutations, roundnumber) #TODO: roundnumber als Parameter in Funktion nötig?
         else:
             number_of_matches = evaluate(solution, cur_guess)
         if should_print:
@@ -264,6 +272,8 @@ if __name__=='__main__':
     RANDOM_THRESHOLD = 150000
     output = True
     interactive = True
+    #only relevant for interactive mode:
     data_folder = Path("data/seasons/AYTO_DE_2021/")
     candidates_file = data_folder / "candidates.json"
+    #save_file = data_folder / "weekly_data.json" #TODO
     main(size, interactive)

@@ -5,14 +5,12 @@
 
 To start the program, you have to declare some parameters in:
 
-
-if __name__=='__main__':
-
-    size = 10
-    RANDOM_THRESHOLD = 10000
-    output = True
-    interactive = False
-    main(size, interactive)
+    if __name__=='__main__':
+        size = 10
+        RANDOM_THRESHOLD = 10000
+        output = True
+        interactive = False
+        main(size, interactive)
 
 - *size* = number of pairs (in AYTO size = 10)
 - *output* = option to get outputs for each round involving 
@@ -65,5 +63,7 @@ Nur Hälfte der Eintrage berechnen weil symmetrisch.
 4. Im interactive mode die Möglichkeit geben bisherige Runden zu speichern, damit man nicht immer alles von der ersten Runde eingeben muss
 
 5. Möglichkeit die solution selbst einzugeben
+
+6. Speichern der Wochenstände im interactive mode
 
 *To switch between views, press Ctrl+Shift+V in the editor.*
