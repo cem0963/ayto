@@ -10,7 +10,7 @@ def init(size, interactive):
     all_permutations = list(permutations(range(size)))
     all_pairs = list(product(range(size),repeat=2))
     if interactive:
-        f = open('seasons/AYTO_DE_2021/candidates.json')
+        f = open('seasons/AYTO_DE_2021/candidates.json') #TODO: praktischer machen
         global candidates_data
         candidates_data = json.load(f)
         print(candidates_data)
@@ -244,22 +244,3 @@ if __name__=='__main__':
     output = True
     interactive = False
     main(size, interactive)
-
-
-
-
-#TODO:
-"""
-1. Evaluate Kreuzmatrix erstellen um Wahrscheinlichkeitsverteilungen (sprich p_k für alle perms in possible_perms) schneller zu berechnen.
-Idee: Matrix (10! x 10! groß) vorher berechnen. Wenn p_k für perm berechnet werden muss, muss nur noch in die Zeile von perm geschaut werden und die Anzahl der k in der Zeile gezählt.
-Damit kriegt man in jeder Zeile eine Wahrscheinlichkeitsverteilung die man einfach an entropy funktion geben kann: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html
-Achtung: nur die k in der Zeile dürfen gezählt werden, die in einer Spalte von einer perm' sind, welche noch in poss_perms ist. Computational sinnvoll?
--> wenn perms aus possible_perms entfernt werden, auch aus Matrix löschen?
-Nur Hälfte der Eintrage berechnen weil symmetrisch.
-
-2. Projekt zu Github hochladen inkl. readme.md
-
-3. Projekt automatisiert laufen lassen können
-    (i) Resultate der einzelnen Läufe in Datei speichern
-    (ii) x Läufe gleichzeitig starten können
-"""

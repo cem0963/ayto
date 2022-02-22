@@ -31,6 +31,7 @@ if __name__=='__main__':
 
 ## some explanations  for *ayto_solver_entropy precalc eval matrix.py*
 **work in progress**
+
 Idea: calculate evaluation matrix beforehand in order to speed up entropy calculation
 
 ### Precalculate evaluation matrix in *generate_evaluation_matrix.py*
