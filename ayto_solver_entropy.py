@@ -34,7 +34,10 @@ def remove_permutations(permutations, guess, number_matches):
 
 def remove_pair(possible_pairs, pair):
     poss_pairs = possible_pairs
-    poss_pairs.remove(pair)
+    if pair in poss_pairs:
+        poss_pairs.remove(pair)
+    else:
+        print("%s ist schon kein mögliches Pärchen mehr."%str(pair))
     return poss_pairs
 
 def entropy_for_guess(guess, possible_permutations): #dauert viel zu lang.. für #poss_perms = 12800 dauerts ca 20 Minuten
@@ -79,7 +82,7 @@ def get_truth_booth_candidate(possible_permutations, possible_pairs, roundnumber
                 best_entropy = entropy_for_truth_booth(possible_permutations, pair)
         return next_pair
 
-def get_guess_candidate(possible_permutations, roundnumber): #returns next guess
+def get_guess_candidate(possible_permutations, roundnumber): #returns next guess from set of **still valid** guesses
     size = len(possible_permutations[0])
     if roundnumber == 1:
         return possible_permutations[random.randint(0, len(possible_permutations)-1)]
@@ -106,36 +109,44 @@ def GetKey(val): #TODO
 
 def interactive_truthbooth():
     #input of truth booth pair
-    woman_tb_number = -1
-    while woman_tb_number == -1:
-        print("Name of woman in truth booth:")
-        woman_tb = str(input())
-        for w in range(size):
-            if candidates_data['women'][w][str(w)] == woman_tb:
-                woman_tb_number = int(w)
-                break
-        if woman_tb_number == -1:
-            print("%s is not a candidate." %woman_tb, "Try again.")
-    man_tb_number = -1
-    while man_tb_number == -1:
-        print("Name of man in truth booth:")
-        man_tb = str(input())
-        for m in range(size):
-            if candidates_data['men'][m][str(m)] == man_tb:
-                man_tb_number = int(m)
-                break
-        if man_tb_number == -1:
-            print("%s is not a candidate." %man_tb, "Try again.")
-    cur_truth_booth_guess = (woman_tb_number, man_tb_number)
+    print("Is the truth booth being sold? (1/0)")
+    is_sold = int(input())
+    if is_sold == 0:
+        woman_tb_number = -1
+        while woman_tb_number == -1:
+            print("Name of woman in truth booth:")
+            woman_tb = str(input())
+            for w in range(size):
+                if candidates_data['women'][w][str(w)] == woman_tb:
+                    woman_tb_number = int(w)
+                    break
+            if woman_tb_number == -1:
+                print("%s is not a candidate." %woman_tb, "Try again.")
+        man_tb_number = -1
+        while man_tb_number == -1:
+            print("Name of man in truth booth:")
+            man_tb = str(input())
+            for m in range(size):
+                if candidates_data['men'][m][str(m)] == man_tb:
+                    man_tb_number = int(m)
+                    break
+            if man_tb_number == -1:
+                print("%s is not a candidate." %man_tb, "Try again.")
+        cur_truth_booth_guess = (woman_tb_number, man_tb_number)
+    else:
+        cur_truth_booth_guess = (-1,-1)
     return cur_truth_booth_guess
 
 def interactive_evaluate_truthbooth(cur_truth_booth_guess):
-    woman_number = cur_truth_booth_guess[0]
-    man_number = cur_truth_booth_guess[1]
-    woman = candidates_data['women'][woman_number][str(woman_number)]
-    man = candidates_data['men'][man_number][str(man_number)]
-    print("Are", woman, "and", man, "a match?", "(1/0)")
-    evaluation = int(input())
+    if cur_truth_booth_guess == (-1,-1):
+        evaluation = -1
+    else:
+        woman_number = cur_truth_booth_guess[0]
+        man_number = cur_truth_booth_guess[1]
+        woman = candidates_data['women'][woman_number][str(woman_number)]
+        man = candidates_data['men'][man_number][str(man_number)]
+        print("Are", woman, "and", man, "a match?", "(1/0)")
+        evaluation = int(input())
     return evaluation
 
 def interactive_guess():
@@ -215,7 +226,7 @@ def one_season(solution, should_print, interactive):
             print('Evaluation of Truth Booth:')
             if evaluation == 1: 
                 print("Truth Booth found a match")
-            else:
+            elif evaluation == 0:
                 print("Truth Booth did not find a match")
         if evaluation == 1:
             perm_before = len(possible_permutations)
@@ -226,6 +237,8 @@ def one_season(solution, should_print, interactive):
                     possible_pairs = remove_pair(possible_pairs, (cur_truth_booth_guess[0], k))
                 if k != cur_truth_booth_guess[0] and (k, cur_truth_booth_guess[1]) in possible_pairs:
                     possible_pairs = remove_pair(possible_pairs, (k, cur_truth_booth_guess[1]))
+        elif evaluation == -1:
+            print("Truth booth was sold. No permutations removed.")
         else: 
             possible_pairs = remove_pair(possible_pairs, cur_truth_booth_guess)
             perm_before = len(possible_permutations)

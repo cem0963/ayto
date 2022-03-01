@@ -3,6 +3,8 @@
 
 ## some explanations  for *ayto_solver_entropy.py*
 
+The idea is to choose each guess (truth booth or matching night) as the one with the highest entropy of all guesses which are still valid at this point. This means non-valid guesses are excluded even though they might have a higher entropy, i.e. more information.
+
 To start the program, you have to declare some parameters in:
 
     if __name__=='__main__':
@@ -54,6 +56,8 @@ Nur Hälfte der Eintrage berechnen weil symmetrisch.
 
 2. unterschiedliche Strategien für Entropy, nicht nur  den Kandidaten mit höchster expected Info. zB weitere Strategie: möglichst wenig guesses, d.h. ab bestimmtem Punkt den wahrscheinlichsten Guess nehmen statt den mit höchster expected info
 
+2. im interactive mode die option geben in jeder runde den wahrscheinlichsten Tipp auszugeben
+
 2. Projekt automatisiert laufen lassen können
 
     (i) Resultate der einzelnen Läufe in Datei speichern
@@ -68,7 +72,7 @@ Nur Hälfte der Eintrage berechnen weil symmetrisch.
 
 6. Speichern der Wochenstände im interactive mode
 
-7. Abfrage ob Truthbooth verkauft wird
+8. error catching bei Eingaben
 
 
 
