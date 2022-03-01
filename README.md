@@ -52,6 +52,8 @@ Achtung: nur die k in der Zeile dürfen gezählt werden, die in einer Spalte von
 -> wenn perms aus possible_perms entfernt werden, auch aus Matrix löschen?
 Nur Hälfte der Eintrage berechnen weil symmetrisch.
 
+2. unterschiedliche Strategien für Entropy, nicht nur  den Kandidaten mit höchster expected Info. zB weitere Strategie: möglichst wenig guesses, d.h. ab bestimmtem Punkt den wahrscheinlichsten Guess nehmen statt den mit höchster expected info
+
 2. Projekt automatisiert laufen lassen können
 
     (i) Resultate der einzelnen Läufe in Datei speichern
@@ -65,5 +67,9 @@ Nur Hälfte der Eintrage berechnen weil symmetrisch.
 5. Möglichkeit die solution selbst einzugeben
 
 6. Speichern der Wochenstände im interactive mode
+
+7. Abfrage ob Truthbooth verkauft wird
+
+
 
 *To switch between views, press Ctrl+Shift+V in the editor.*
